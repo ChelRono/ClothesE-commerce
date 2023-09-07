@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.example.clothesecommerceapp.ui.theme.ClothesEcommerceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,10 +40,20 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    ClothesEcommerceAppTheme {
-        Greeting("Android")
+fun NavigationGraph(navController: NavHostController) {
+    NavHost(navController, startDestination = BottomNavItem.Home.screen_route) {
+        composable(BottomNavItem.Home.screen_route) {
+            HomeScreen()
+        }
+        composable(BottomNavItem.Explore.screen_route) {
+            ExploreScreen()
+        }
+        composable(BottomNavItem.Shop.screen_route) {
+           ShopScreen()
+        }
+        composable(BottomNavItem.Settings.screen_route) {
+           SettingsScreen()
+        }
     }
 }
