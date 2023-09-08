@@ -83,9 +83,9 @@ fun BottomNavigation(navController: NavController) {
         items.forEach { item ->
             BottomNavigationItem(
                 icon = { Image(painterResource(id = item.icon), contentDescription = item.title) },
-                label = { Text(text = item.title,
+                label = { Text(text = item.title,color=Color.Gray,
                     fontSize = 16.sp) },
-                selectedContentColor = Color.Black,
+                selectedContentColor = Color.Yellow,
                 unselectedContentColor = Color.Black.copy(0.4f),
                 alwaysShowLabel = true,
                 selected = currentRoute == item.screen_route,
