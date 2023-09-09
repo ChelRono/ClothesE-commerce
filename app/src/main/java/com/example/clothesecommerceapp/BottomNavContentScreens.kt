@@ -31,10 +31,12 @@ import androidx.compose.material.ButtonColors
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -43,6 +45,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -51,7 +54,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
+import androidx.compose.ui.graphics.Color.Companion.LightGray
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
@@ -314,6 +320,7 @@ fun BottomText( title: String){
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShopScreen() {
     Column(
@@ -322,14 +329,299 @@ fun ShopScreen() {
             .background(colorResource(id = R.color.teal_700))
             .wrapContentSize(Alignment.Center)
     ) {
-        Text(
-            text = "Add Post Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text="Search",
+                            textAlign = TextAlign.Center
+                        )},
+                    navigationIcon ={
+                        Row(
+                            Modifier
+                                .fillMaxWidth()
+                                .height(20.dp)
+                                .padding(horizontal = 24.dp)
+                        ){
+                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                            Text(
+                                "My Cart",
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.weight(1f))
+                            Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Delete")
+                        } } ,
+                    modifier=Modifier
+                        .background (color=Color.White)
+                )
+            }
+        ){ paddingValues ->
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(paddingValues)
+            ){
+                OutlinedCard(
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGray,
+                    ),
+                    modifier = Modifier
+                        .size(width = 400.dp, height = 130.dp)
+                        .padding(horizontal = 24.dp)
+                ) {
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_3),
+                            contentDescription =""
+                        )
+                        Column {
+                            Text(
+                                text = "Hoodie Women",
+                                modifier = Modifier
+                                .padding(vertical = 5.dp, horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
+                            Text(
+                                text = "ID:10921",
+                                modifier = Modifier
+                                    .padding( horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Size:L",
+                                modifier = Modifier
+                                    .padding( horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Quantity:1",
+                                modifier = Modifier
+                                    .padding( horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "$200",
+                                modifier = Modifier
+                                    .padding( horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+
+
+                    }
+
+                }
+                Spacer(modifier = Modifier.height(20.dp))
+                OutlinedCard(
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGray,
+                    ),
+                    modifier = Modifier
+                        .size(width = 400.dp, height = 130.dp)
+                        .padding(horizontal = 24.dp)
+                ) {
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_4),
+                            contentDescription = ""
+                        )
+                        Column {
+                            Text(
+                                text = "Sweater",
+                                modifier = Modifier
+                                    .padding(vertical = 5.dp, horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
+                            Text(
+                                text = "ID:10921",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Size:L",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Quantity:1",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "$200",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+
+                    }
+                    }
+                Spacer(modifier = Modifier.height(20.dp))
+                OutlinedCard(
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGray,
+                    ),
+                    modifier = Modifier
+                        .size(width = 400.dp, height = 130.dp)
+                        .padding(horizontal = 24.dp)
+                ) {
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.img),
+                            contentDescription = ""
+                        )
+                        Column {
+                            Text(
+                                text = "Jacket",
+                                modifier = Modifier
+                                    .padding(vertical = 5.dp, horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
+                            Text(
+                                text = "ID:10921",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Size:L",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "Quantity:1",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp
+                            )
+                            Text(
+                                text = "$200",
+                                modifier = Modifier
+                                    .padding(horizontal = 10.dp),
+                                textAlign = TextAlign.Center,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+
+                    }
+                    }
+                Spacer(modifier = Modifier.height(20.dp))
+
+                OutlinedCard(
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGray,
+                    ),
+                    modifier = Modifier
+                        .size(width = 400.dp, height = 290.dp)
+                        .padding(horizontal = 24.dp)
+                ) {
+                    Row {
+                        Text(
+                            text = "SubTotal",
+                            modifier = Modifier
+                                .padding(vertical=2.dp, horizontal = 24.dp),
+                            textAlign = TextAlign.Center,
+                            fontSize = 18.sp
+                        )
+                        Text(
+                            text = "$300.00",
+                            modifier = Modifier
+                                .padding(vertical=2.dp, horizontal = 24.dp),
+                            textAlign = TextAlign.Center,
+                            fontSize = 18.sp
+                        )
+                    }
+                    Row {
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Text(
+                            text = "Shipping",
+                            modifier = Modifier
+                                .padding(vertical=4.dp, horizontal = 24.dp),
+                            textAlign = TextAlign.Center,
+                            fontSize = 18.sp
+
+                        )
+                        Text(
+                            text = "$400.00",
+                            modifier = Modifier
+                                .padding(vertical=4.dp, horizontal = 24.dp),
+                            textAlign = TextAlign.Center,
+                            fontSize = 18.sp
+                        )
+                    }
+                    Divider(
+                        modifier = Modifier
+                            .padding(vertical=4.dp, horizontal = 24.dp),
+                        thickness = 1.dp,
+                        color = Color.Black
+                    )
+                    Row {
+
+                        Text(
+                            text = "Total",
+                            modifier = Modifier
+                                .padding(vertical=2.dp, horizontal = 24.dp),
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
+                        )
+                        Text(
+                            text = "$400.00",
+                            modifier = Modifier
+                                .padding(vertical=2.dp, horizontal = 50.dp),
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
+                        )
+                    }
+                    Row {
+                        OutlinedButton(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 30.dp, horizontal = 24.dp),
+                            onClick = {},
+                            colors = androidx.compose.material3.ButtonDefaults.buttonColors(Color.Black)
+                        ) {
+                            Text(
+                                text = "Checkout",
+                                color = Color.White,
+                                fontSize = 18.sp
+                            )
+
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }
 
