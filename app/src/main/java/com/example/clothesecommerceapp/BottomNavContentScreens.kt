@@ -230,10 +230,16 @@ fun ExploreScreen() {
                     Row(
                         Modifier
                             .fillMaxWidth()
-                            .height(20.dp)
+                            .height(40.dp)
                             .padding(horizontal = 24.dp)
                     ){
-                        Icon(imageVector = Icons.Default.KeyboardArrowLeft, contentDescription = "Back")
+                        Icon(
+                            imageVector = Icons.Default.KeyboardArrowLeft,
+                            contentDescription = "Back",
+                            modifier = Modifier
+                                .size(30.dp)
+
+                            )
                         Text(
                             "Explore",
                             fontSize = 18.sp,
@@ -241,16 +247,13 @@ fun ExploreScreen() {
                             textAlign = TextAlign.Center,
                             modifier = Modifier.weight(1f))
                         Icon(imageVector = Icons.Default.Search, contentDescription = "Delete")
-
-
-
-
                     } } ,
 
             )
 
         }
     ) { paddingValues ->
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -258,9 +261,39 @@ fun ExploreScreen() {
                 .padding(paddingValues)
                 .background(Color(0xFFf5f5f5))
         ) {
+            Row (
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+            ){
+            Text(
+                text = "CLOTHING-",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                color = LightGray
+            )
+            Text(
+                text = "T-SHIRTS",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Image(
+                painter = painterResource(id = R.drawable.search),
+                contentDescription ="" ,
+                modifier = Modifier
+                    .padding(start = 85.dp)
+                    .height(23.dp)
+                    .size(100.dp)
+            )
+        }
+            Divider(
+                modifier = Modifier
+                    .padding(vertical = 10.dp)
+                    .width(400.dp),
+                thickness = 2.dp
+                )
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(24.dp)
             ) {
                 items(clothes.size) {
                     ClothItem(imageId = clothes[it], title = "Who Ate My Cheese")
