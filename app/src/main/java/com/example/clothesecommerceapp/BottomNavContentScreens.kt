@@ -277,7 +277,7 @@ fun ExploreScreen() {
                 fontWeight = FontWeight.Bold
             )
             Image(
-                painter = painterResource(id = R.drawable.search),
+                painter = painterResource(id = R.drawable.align_vertical),
                 contentDescription ="" ,
                 modifier = Modifier
                     .padding(start = 85.dp)
