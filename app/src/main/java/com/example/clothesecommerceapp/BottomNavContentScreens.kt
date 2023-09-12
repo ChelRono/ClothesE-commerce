@@ -40,6 +40,7 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -49,6 +50,8 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -221,6 +224,8 @@ fun ExploreScreen() {
                         text="Search",
                         textAlign = TextAlign.Center
                         )},
+                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFFf5f5f5)),
+
                 navigationIcon ={
                     Row(
                         Modifier
@@ -241,9 +246,7 @@ fun ExploreScreen() {
 
 
                     } } ,
-                modifier=Modifier
 
-                    .background (color=Color.White)
             )
 
         }
@@ -253,6 +256,7 @@ fun ExploreScreen() {
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .padding(paddingValues)
+                .background(Color(0xFFf5f5f5))
         ) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
@@ -275,14 +279,10 @@ fun ClothItem(imageId: Int, title: String) {
         modifier = Modifier
             .padding(horizontal = 6.dp, vertical = 16.dp)
             .size(250.dp)
-            .border(2.dp, color = Color.White, shape = RoundedCornerShape(16.dp))
-            .clickable {
 
-            },
-        elevation = CardDefaults.cardElevation()
     ) {
         Column(
-            Modifier.padding(5.dp),
+
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -290,8 +290,8 @@ fun ClothItem(imageId: Int, title: String) {
                         painter = painterResource(id = imageId),
                         contentDescription = "",
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(5.dp),
+                            .fillMaxSize(),
+
                         contentScale = ContentScale.FillBounds
                     )
                 }
@@ -326,23 +326,26 @@ fun ShopScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
             .wrapContentSize(Alignment.Center)
     ) {
+
         Scaffold(
             topBar = {
                 TopAppBar(
+
                     title = {
                         Text(
                             text="Search",
                             textAlign = TextAlign.Center
                         )},
+                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFFf5f5f5)),
                     navigationIcon ={
                         Row(
                             Modifier
                                 .fillMaxWidth()
                                 .height(20.dp)
                                 .padding(horizontal = 24.dp)
+
                         ){
                             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
                             Text(
@@ -353,8 +356,8 @@ fun ShopScreen() {
                                 modifier = Modifier.weight(1f))
                             Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Delete")
                         } } ,
-                    modifier=Modifier
-                        .background (color=Color.White)
+
+
                 )
             }
         ){ paddingValues ->
@@ -363,19 +366,23 @@ fun ShopScreen() {
                     .fillMaxWidth()
                     .fillMaxHeight()
                     .padding(paddingValues)
+                    .background(Color(0xFFf5f5f5))
             ){
-                OutlinedCard(
+                Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = LightGray,
+                        containerColor = White,
                     ),
+
                     modifier = Modifier
                         .size(width = 400.dp, height = 130.dp)
-                        .padding(horizontal = 24.dp)
+                        .padding(horizontal = 14.dp)
                 ) {
                     Row {
                         Image(
                             painter = painterResource(id = R.drawable.img_3),
-                            contentDescription =""
+                            contentDescription ="",
+                            modifier=Modifier
+                                .padding(10.dp)
                         )
                         Column {
                             Text(
@@ -422,18 +429,20 @@ fun ShopScreen() {
 
                 }
                 Spacer(modifier = Modifier.height(20.dp))
-                OutlinedCard(
+                Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = LightGray,
+                        containerColor = White,
                     ),
                     modifier = Modifier
                         .size(width = 400.dp, height = 130.dp)
-                        .padding(horizontal = 24.dp)
+                        .padding(horizontal = 14.dp)
                 ) {
                     Row {
                         Image(
                             painter = painterResource(id = R.drawable.img_4),
-                            contentDescription = ""
+                            contentDescription = "",
+                            modifier=Modifier
+                                .padding(10.dp)
                         )
                         Column {
                             Text(
@@ -478,18 +487,20 @@ fun ShopScreen() {
                     }
                     }
                 Spacer(modifier = Modifier.height(20.dp))
-                OutlinedCard(
+                Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = LightGray,
+                        containerColor = White,
                     ),
                     modifier = Modifier
                         .size(width = 400.dp, height = 130.dp)
-                        .padding(horizontal = 24.dp)
+                        .padding(horizontal = 14.dp)
                 ) {
                     Row {
                         Image(
                             painter = painterResource(id = R.drawable.img),
-                            contentDescription = ""
+                            contentDescription = "",
+                            modifier=Modifier
+                                .padding(10.dp)
                         )
                         Column {
                             Text(
@@ -535,13 +546,13 @@ fun ShopScreen() {
                     }
                 Spacer(modifier = Modifier.height(20.dp))
 
-                OutlinedCard(
+                Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = LightGray,
+                        containerColor = White,
                     ),
                     modifier = Modifier
                         .size(width = 400.dp, height = 290.dp)
-                        .padding(horizontal = 24.dp)
+                        .padding(horizontal = 2.dp)
                 ) {
                     Row {
                         Text(
@@ -603,12 +614,12 @@ fun ShopScreen() {
                         )
                     }
                     Row {
-                        OutlinedButton(
+                       Button(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 30.dp, horizontal = 24.dp),
+                           colors=androidx.compose.material.ButtonDefaults.buttonColors(backgroundColor = Color.Black),
                             onClick = {},
-                            colors = androidx.compose.material3.ButtonDefaults.buttonColors(Color.Black)
                         ) {
                             Text(
                                 text = "Checkout",
