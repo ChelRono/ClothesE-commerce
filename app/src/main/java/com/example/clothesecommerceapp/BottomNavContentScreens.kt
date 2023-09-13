@@ -28,15 +28,18 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
+import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -484,21 +487,21 @@ fun ShopScreen() {
                                     .padding(vertical = 5.dp, horizontal = 10.dp),
                                 textAlign = TextAlign.Center,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp
+                                fontSize = 19.sp
                             )
                             Text(
                                 text = "ID:10921",
                                 modifier = Modifier
                                     .padding(horizontal = 10.dp),
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp
+                                fontSize = 18.sp
                             )
                             Text(
                                 text = "Size:L",
                                 modifier = Modifier
                                     .padding(horizontal = 10.dp),
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp
+                                fontSize = 18.sp
                             )
                             Text(
                                 text = "Quantity:1",
@@ -512,7 +515,7 @@ fun ShopScreen() {
                                 modifier = Modifier
                                     .padding(horizontal = 10.dp),
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp,
+                                fontSize = 18.sp,
                                 fontWeight = FontWeight.Bold
                             )
                         }
@@ -674,37 +677,99 @@ fun ShopScreen() {
 fun SettingsScreen() {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
+            .background(colorResource(id = R.color.white))
     ) {
-        Text(
-            text = "Notification Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
-    }
-}
+            Image(
+                painter = painterResource(id =R.drawable.img_9 ),
+                contentDescription ="" ,
+                modifier=Modifier
 
+                    .height(420.dp),
+                contentScale = ContentScale.FillWidth,
+
+            )
+            Card(
+            colors = CardDefaults.cardColors(
+                containerColor = White,
+            ),
+            modifier = Modifier
+                .size(width = 450.dp, height = 450.dp)
+                .padding(bottom = 50.dp)
+           ){
+                Column(
+                    modifier = Modifier
+                        .padding(horizontal = 24.dp, vertical = 24.dp)
+                ) {
+                    Text(
+                        text = "Mobile",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+
+
+                        )
+                    Text(
+                        text = "0714567899",
+                        fontSize = 20.sp,
+                        color = Color.LightGray
+
+                    )
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Column {
+                        Text(
+                            text = "Membership",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Text(
+                        text = "Gold",
+                        color = Color.LightGray,
+                        fontSize = 20.sp,
+                    )
+                    Spacer(modifier = Modifier.width(140.dp))
+
+
+                    Spacer(modifier = Modifier.height(60.dp))
+                    Text(
+                        text = "Address",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                    Text(
+                        text = "Eldoret,Kenya",
+                        fontSize = 20.sp,
+                        color = Color.LightGray
+
+                    )
+                    Text(
+                        text = "P.O.BOX 3456",
+                        fontSize = 20.sp,
+                        color = Color.LightGray
+
+                    )
+                }
+            }
+        }
+    Example()
+    }
 
 @Composable
-fun JobScreen() {
+fun Example() {
     Column(
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.Bottom,
         modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
+            .fillMaxSize(1f)
+            .padding(vertical = 305.dp)
+            .padding(end = 40.dp)
     ) {
-        Text(
-            text = "Jobs Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
+        FloatingActionButton(
+            onClick = {  },
+
+        ) {
+            Icon(Icons.Rounded.Edit, "Floating action button.")
+        }
     }
+
 }
+
